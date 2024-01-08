@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const notFound = require("./middlewares/not-found");
 const connectDB = require("./database/connect");
+const tasksRouter = require("./routes/tasks");
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,8 @@ app.use(express.static("public"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/", tasksRouter);
 
 app.use(notFound);
 
