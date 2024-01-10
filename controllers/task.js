@@ -15,7 +15,14 @@ const getCreateTask = async (req, res, next) => {
     next(error)
   }
 };
-const createTask = async (req, res, next) => {};
+const createTask = async (req, res, next) => {
+  try {
+    await Task.create(req.body)
+    res.status(201).redirect("/")
+  }catch(error) {
+    next(error)
+  }
+};
 const getSingleTask = async (req, res, next) => {};
 const editTask = async (req, res, next) => {};
 const deleteTask = async (req, res, next) => {};
