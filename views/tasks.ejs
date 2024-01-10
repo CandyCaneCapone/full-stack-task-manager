@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task List</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <div class="task-container">
         <h1>Task List</h1>
         <ul class="task-list">
-            <% tasks.forEach(task => { %>
+            <% tasks.forEach(task=> { %>
                 <li class="task-item">
-                    <h3><%= task.title %></h3>
-                    <p><%= task.description %></p>
+                    <h3>
+                        <%= task.title %>
+                    </h3>
+                    <p>
+                        <%= task.description %>
+                    </p>
                     <div class="buttons">
                         <a href="/edit/<%= task.id %>" class="edit-button">Edit</a>
-                        <a href="/delete/<%= task.id %>" class="delete-button">Delete</a>
+                        <form action="/delete/<%= task.id %>" method="POST" class="delete-form">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
                     </div>
                 </li>
-            <% }); %>
+                <% }); %>
         </ul>
         <div class="add-task-container">
             <a href="/add" class="add-task-button">Add New Task</a>
         </div>
     </div>
 </body>
+
 </html>
