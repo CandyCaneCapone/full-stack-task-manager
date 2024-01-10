@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/error.css">
 </head>
 <body>
-    <p><%=error%></p>
+    <div class="error-container">
+        <h1>Oops! Something went wrong.</h1>
+        <p><%= message %></p>
+        <a href="/">Go back to the homepage</a>
+    </div>
 </body>
 </html>

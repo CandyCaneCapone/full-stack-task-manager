@@ -1,5 +1,5 @@
 const Task = require("../models/task");
-const NotFoundError = require("../models/task");
+const NotFoundError = require("../errors/not-found");
 
 const getAllTasks = async (req, res, next) => {
   try {
