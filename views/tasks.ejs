@@ -13,7 +13,7 @@
         <h1>Task List</h1>
         <ul class="task-list">
             <% tasks.forEach(task=> { %>
-                <li class="task-item">
+                <li class="task-item <%= task.completed ? 'completed-task' : '' %>">
                     <h3>
                         <%= task.title %>
                     </h3>

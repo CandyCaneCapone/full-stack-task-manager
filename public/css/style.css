@@ -25,6 +25,11 @@ body {
     border-radius: 8px;
 }
 
+/* Additional styles for completed tasks */
+.task-item.completed-task {
+    background-color: #dff0d8; /* Green background for completed tasks */
+}
+
 .task-item h3 {
     margin-top: 0;
 }
