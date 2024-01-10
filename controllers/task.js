@@ -8,8 +8,15 @@ const getAllTasks = async (req, res, next) => {
     next(error);
   }
 };
-const getSingleTask = async (req, res, next) => {};
+const getCreateTask = async (req, res, next) => {
+  try {
+    res.render("add-task")
+  }catch(error){
+    next(error)
+  }
+};
 const createTask = async (req, res, next) => {};
+const getSingleTask = async (req, res, next) => {};
 const editTask = async (req, res, next) => {};
 const deleteTask = async (req, res, next) => {};
 
@@ -17,6 +24,7 @@ module.exports = {
   getAllTasks,
   getSingleTask,
   createTask,
+  getCreateTask , 
   editTask,
   deleteTask,
 };
