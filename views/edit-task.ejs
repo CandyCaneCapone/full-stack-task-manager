@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/css/editTask.css">
+</head>
+
+<body>
+    <div class="edit-task-container">
+        <h1>Edit Task</h1>
+        <form action="/edit/<%= task.id %>" method="post">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= task.title %>" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required><%= task.description %></textarea>
+
+            <label for="completed">Completed:</label>
+            <select id="completed" name="completed">
+                <option value="false" <%=task.completed ? '' : 'selected' %>>No</option>
+                <option value="true" <%=task.completed ? 'selected' : '' %>>Yes</option>
+            </select>
+
+            <button type="submit" class="edit-task-button">Save Changes</button>
+        </form>
+        <a href="/tasks" class="back-to-list">Back to Task List</a>
+    </div>
+</body>
+
+</html>

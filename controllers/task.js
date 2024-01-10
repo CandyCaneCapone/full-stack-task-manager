@@ -38,8 +38,41 @@ const deleteTask = async (req, res, next) => {
   }
 };
 
+const getEditTask = async (req , res , next) => {
+  try {
+    const taskId = req.params.id 
+    const task = await Task.findById(taskId)
+    if (!task) {
+      throw new NotFoundError("Task not found")
+    }
+
+    res.render("edit-task" , {task})
+  }catch(error) {
+    next(error)
+  }
+}
+const editTask = async (req, res, next) => {
+  try {
+    const taskId = req.params.id 
+    const updateFields = {
+      title : req.body.title , 
+      description : req.body.description , 
+      completed : req.body.completed 
+    }
+    const task = await Task.findByIdAndUpdate(taskId , updateFields , {
+      runValidators : true 
+    })
+    if (!task) {
+      throw new NotFoundError("Task not found")
+    }
+
+    res.redirect("/")
+  }catch(error) {
+    next(error)
+  }
+};
+
 const getSingleTask = async (req, res, next) => {};
-const editTask = async (req, res, next) => {};
 
 module.exports = {
   getAllTasks,
@@ -47,5 +80,6 @@ module.exports = {
   createTask,
   getCreateTask,
   editTask,
+  getEditTask,
   deleteTask,
 };
